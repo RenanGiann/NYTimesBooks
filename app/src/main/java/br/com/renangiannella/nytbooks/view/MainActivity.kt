@@ -41,12 +41,11 @@ class MainActivity : AppCompatActivity() {
         viewModel.toastError.observe(this, Observer {
             it.let {
                 Toast.makeText(this@MainActivity, "API Error", Toast.LENGTH_SHORT).show()
-                //Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
             }
         })
 
         viewModel.bookLiveData.observe(this, Observer {
-            it.let {books ->
+            it.let { books ->
                 with(recyclerViewMain){
                     layoutManager = LinearLayoutManager(this@MainActivity, RecyclerView.VERTICAL, false)
                     setHasFixedSize(true)
